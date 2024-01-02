@@ -72,5 +72,5 @@ if __name__ == '__main__':
         ))
     _ = [i.get() for i in r]
 
-    generate_dataset_json(join(out_base, 'dataset.json'), imagestr, imagests, ('nonCT',), {0: 'background', 1: 'head'},
+    generate_dataset_json(join(out_base, 'dataset1.json'), imagestr, imagests, ('nonCT',), {0: 'background', 1: 'head'},
                           task_name)

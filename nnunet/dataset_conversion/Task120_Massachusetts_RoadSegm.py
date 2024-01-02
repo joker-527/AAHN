@@ -79,8 +79,8 @@ if __name__ == '__main__':
         convert_2d_image_to_nifti(input_segmentation_file, output_seg_file, is_seg=True,
                                   transform=lambda x: (x == 255).astype(int))
 
-    # finally we can call the utility for generating a dataset.json
-    generate_dataset_json(join(target_base, 'dataset.json'), target_imagesTr, target_imagesTs, ('Red', 'Green', 'Blue'),
+    # finally we can call the utility for generating a dataset1.json
+    generate_dataset_json(join(target_base, 'dataset1.json'), target_imagesTr, target_imagesTs, ('Red', 'Green', 'Blue'),
                           labels={0: 'background', 1: 'street'}, dataset_name=task_name, license='hands off!')
 
     """

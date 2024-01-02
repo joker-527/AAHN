@@ -225,7 +225,7 @@ if __name__ == "__main__":
     p.close()
     p.join()
 
-    # generate dataset.json
+    # generate dataset1.json
     json_dict = {}
     json_dict['name'] = task_name
     json_dict['description'] = ""
@@ -247,7 +247,7 @@ if __name__ == "__main__":
                              train_patient_names]
     json_dict['test'] = ["./imagesTs/%s.nii.gz" % i for i in test_patient_names]
 
-    save_json(json_dict, os.path.join(out_base, "dataset.json"))
+    save_json(json_dict, os.path.join(out_base, "dataset1.json"))
 
     # now add additional time information
     for fld in ['imagesTr', 'imagesTs']:
@@ -272,7 +272,7 @@ if __name__ == "__main__":
                     else:
                         shutil.copy(expected_filename, join(curr, i.replace("_0000", "_%04.0d" % (
                                     additional_time_steps + previous_timestep))))
-    dataset = load_json(join(out_base, 'dataset.json'))
+    dataset = load_json(join(out_base, 'dataset1.json'))
     dataset['modality'] = {
         '0': 't_minus 4',
         '1': 't_minus 3',
@@ -280,7 +280,7 @@ if __name__ == "__main__":
         '3': 't_minus 1',
         '4': 'frame of interest',
     }
-    save_json(dataset, join(out_base, 'dataset.json'))
+    save_json(dataset, join(out_base, 'dataset1.json'))
 
     # we do not need custom splits since we train on all training cases
 

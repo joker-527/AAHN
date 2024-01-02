@@ -693,7 +693,7 @@ if __name__ == "__main__":
                              patient_names]
     json_dict['test'] = []
 
-    save_json(json_dict, join(target_base, "dataset.json"))
+    save_json(json_dict, join(target_base, "dataset1.json"))
 
     if downloaded_data_dir_val is not None:
         for p in subdirs(downloaded_data_dir_val, join=False):

@@ -115,9 +115,9 @@ def main():
     #                     help="force_separate_z resampling. Can be None, True or False, has no effect if mode=fastest. "
     #                          "Do not touch this.")
     parser.add_argument('-chk',
-                        help='checkpoint name, default: model_final_checkpoint',
+                        help='checkpoint name, default: model_best',
                         required=False,
-                        default='model_final_checkpoint')
+                        default='model_best')
     parser.add_argument('--disable_mixed_precision', default=False, action='store_true', required=False,
                         help='Predictions are done with mixed precision by default. This improves speed and reduces '
                              'the required vram. If you want to disable mixed precision you can set this flag. Note '

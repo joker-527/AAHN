@@ -56,8 +56,9 @@ class SegmentationNetwork(NeuralNetwork):
         # we need to know this because we need to know if we are a 2d or a 3d netowrk
         self.conv_op = None  # nn.Conv2d or nn.Conv3d
 
+
         # this tells us how many channels we have in the output. Important for preallocation in inference
-        self.num_classes = None  # number of channels in the output
+        self.num_classes = 3 # number of channels in the output
 
         # depending on the loss, we do not hard code a nonlinearity into the architecture. To aggregate predictions
         # during inference, we need to apply the nonlinearity, however. So it is important to let the newtork know what
@@ -120,6 +121,8 @@ class SegmentationNetwork(NeuralNetwork):
 
         # A very long time ago the mirror axes were (2, 3, 4) for a 3d network. This is just to intercept any old
         # code that uses this convention
+        print(max(mirror_axes))
+        print(self.conv_op)
         if len(mirror_axes):
             if self.conv_op == nn.Conv2d:
                 if max(mirror_axes) > 1:
@@ -317,6 +320,7 @@ class SegmentationNetwork(NeuralNetwork):
             if self._gaussian_3d is None or not all(
                     [i == j for i, j in zip(patch_size, self._patch_size_for_gaussian_3d)]):
                 if verbose: print('computing Gaussian')
+                print(self.num_classes)
                 gaussian_importance_map = self._get_gaussian(patch_size, sigma_scale=1. / 8)
 
                 self._gaussian_3d = gaussian_importance_map
@@ -526,10 +530,10 @@ class SegmentationNetwork(NeuralNetwork):
         else:
             mirror_idx = 1
             num_results = 1
-
         for m in range(mirror_idx):
             if m == 0:
                 pred = self.inference_apply_nonlin(self(x))
+                print(pred.shape)
                 result_torch += 1 / num_results * pred
 
             if m == 1 and (2 in mirror_axes):

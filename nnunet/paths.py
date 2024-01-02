@@ -19,9 +19,8 @@ from batchgenerators.utilities.file_and_folder_operations import maybe_mkdir_p, 
 my_output_identifier = "nnUNet"
 default_plans_identifier = "nnUNetPlansv2.1"
 default_data_identifier = 'nnUNetData_plans_v2.1'
-default_trainer = "nnUNetTrainerV2"
+default_trainer = "nnUNetTrainer_TransUNet_Graph_TranFuse_v2_nocrossandgrapth"
 default_cascade_trainer = "nnUNetTrainerV2CascadeFullRes"
-
 """
 PLEASE READ paths.md FOR INFORMATION TO HOW TO SET THIS UP
 """

@@ -31,7 +31,7 @@ if __name__ == '__main__':
             shutil.copy(join(kits_data_dir, c, kits_segmentation_filename), join(labelstr, c + '.nii.gz'))
             shutil.copy(join(kits_data_dir, c, 'imaging.nii.gz'), join(imagestr, c + '_0000.nii.gz'))
 
-    generate_dataset_json(join(out_base, 'dataset.json'),
+    generate_dataset_json(join(out_base, 'dataset1.json'),
                           imagestr,
                           None,
                           ('CT',),

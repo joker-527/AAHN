@@ -137,4 +137,4 @@ if __name__ == "__main__":
     pool.join()
     print("All tasks finished.")
 
-    generate_dataset_json(join(dataset_save_path, 'dataset.json'), join(dataset_save_path, "imagesTr"), None, ('CT',), {0: 'bg', 1: 'rib'}, "Task156_RibSeg")
+    generate_dataset_json(join(dataset_save_path, 'dataset1.json'), join(dataset_save_path, "imagesTr"), None, ('CT',), {0: 'bg', 1: 'rib'}, "Task156_RibSeg")

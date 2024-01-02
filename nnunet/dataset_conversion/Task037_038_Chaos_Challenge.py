@@ -298,7 +298,7 @@ if __name__ == "__main__":
                              patient_ids]
     json_dict['test'] = []
 
-    save_json(json_dict, join(output_folder, "dataset.json"))
+    save_json(json_dict, join(output_folder, "dataset1.json"))
 
     ##############################################################
     # Variant 2
@@ -421,7 +421,7 @@ if __name__ == "__main__":
                              patient_ids]
     json_dict['test'] = []
 
-    save_json(json_dict, join(output_folder, "dataset.json"))
+    save_json(json_dict, join(output_folder, "dataset1.json"))
 
     #################################################
     # custom split

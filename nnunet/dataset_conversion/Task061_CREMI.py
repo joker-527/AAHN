@@ -133,7 +133,7 @@ if __name__ == "__main__":
 
     json_dict['test'] = ["./imagesTs/sample_a+.nii.gz", "./imagesTs/sample_b+.nii.gz", "./imagesTs/sample_c+.nii.gz"]
 
-    save_json(json_dict, os.path.join(out_base, "dataset.json"))
+    save_json(json_dict, os.path.join(out_base, "dataset1.json"))
 
     out_preprocessed = join(preprocessing_output_dir, foldername)
     maybe_mkdir_p(out_preprocessed)

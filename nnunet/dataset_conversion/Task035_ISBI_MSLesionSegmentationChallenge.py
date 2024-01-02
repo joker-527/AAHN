@@ -146,7 +146,7 @@ if __name__ == "__main__":
                              tr_files]
     json_dict['test'] = ["./imagesTs/%s.nii.gz" % i[:-7] for i in ts_files]
 
-    save_json(json_dict, join(out_base, "dataset.json"))
+    save_json(json_dict, join(out_base, "dataset1.json"))
 
     case_identifiers = np.unique([i[:-12] for i in subfiles("/media/fabian/My Book/MedicalDecathlon/MedicalDecathlon_raw_splitted/Task035_ISBILesionSegmentation/imagesTr", suffix='.nii.gz', join=False)])
 

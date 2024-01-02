@@ -236,5 +236,5 @@ if __name__ == "__main__":
                              cases]
     json_dict['test'] = []
 
-    save_json(json_dict, os.path.join(out, "dataset.json"))
+    save_json(json_dict, os.path.join(out, "dataset1.json"))
 

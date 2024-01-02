@@ -89,7 +89,7 @@ def verify_contains_only_expected_labels(itk_img: str, valid_labels: (tuple, lis
 
 def verify_dataset_integrity(folder):
     """
-    folder needs the imagesTr, imagesTs and labelsTr subfolders. There also needs to be a dataset.json
+    folder needs the imagesTr, imagesTs and labelsTr subfolders. There also needs to be a dataset1.json
     checks if all training cases and labels are present
     checks if all test cases (if any) are present
     for each case, checks whether all modalities apre present
@@ -98,10 +98,10 @@ def verify_dataset_integrity(folder):
     :param folder:
     :return:
     """
-    assert isfile(join(folder, "dataset.json")), "There needs to be a dataset.json file in folder, folder=%s" % folder
+    assert isfile(join(folder, "dataset1.json")), "There needs to be a dataset1.json file in folder, folder=%s" % folder
     assert isdir(join(folder, "imagesTr")), "There needs to be a imagesTr subfolder in folder, folder=%s" % folder
     assert isdir(join(folder, "labelsTr")), "There needs to be a labelsTr subfolder in folder, folder=%s" % folder
-    dataset = load_json(join(folder, "dataset.json"))
+    dataset = load_json(join(folder, "dataset1.json"))
     training_cases = dataset['training']
     num_modalities = len(dataset['modality'].keys())
     test_cases = dataset['test']
@@ -117,7 +117,7 @@ def verify_dataset_integrity(folder):
     has_nan = False
 
     # check all cases
-    if len(expected_train_identifiers) != len(np.unique(expected_train_identifiers)): raise RuntimeError("found duplicate training cases in dataset.json")
+    if len(expected_train_identifiers) != len(np.unique(expected_train_identifiers)): raise RuntimeError("found duplicate training cases in dataset1.json")
 
     print("Verifying training set")
     for c in expected_train_identifiers:
@@ -160,9 +160,9 @@ def verify_dataset_integrity(folder):
 
     # check for stragglers
     assert len(
-        nii_files_in_imagesTr) == 0, "there are training cases in imagesTr that are not listed in dataset.json: %s" % nii_files_in_imagesTr
+        nii_files_in_imagesTr) == 0, "there are training cases in imagesTr that are not listed in dataset1.json: %s" % nii_files_in_imagesTr
     assert len(
-        nii_files_in_labelsTr) == 0, "there are training cases in labelsTr that are not listed in dataset.json: %s" % nii_files_in_labelsTr
+        nii_files_in_labelsTr) == 0, "there are training cases in labelsTr that are not listed in dataset1.json: %s" % nii_files_in_labelsTr
 
     # verify that only properly declared values are present in the labels
     print("Verifying label values")
@@ -189,7 +189,7 @@ def verify_dataset_integrity(folder):
 
     if fail:
         raise AssertionError(
-            "Found unexpected labels in the training dataset. Please correct that or adjust your dataset.json accordingly")
+            "Found unexpected labels in the training dataset. Please correct that or adjust your dataset1.json accordingly")
     else:
         print("Labels OK")
 
@@ -219,13 +219,13 @@ def verify_dataset_integrity(folder):
             for i in expected_image_files:
                 nii_files_in_imagesTs.remove(os.path.basename(i))
         assert len(
-            nii_files_in_imagesTs) == 0, "there are training cases in imagesTs that are not listed in dataset.json: %s" % nii_files_in_imagesTr
+            nii_files_in_imagesTs) == 0, "there are training cases in imagesTs that are not listed in dataset1.json: %s" % nii_files_in_imagesTr
 
     all_same, unique_orientations = verify_all_same_orientation(join(folder, "imagesTr"))
     if not all_same:
         print(
             "WARNING: Not all images in the dataset have the same axis ordering. We very strongly recommend you correct that by reorienting the data. fslreorient2std should do the trick")
-    # save unique orientations to dataset.json
+    # save unique orientations to dataset1.json
     if not geometries_OK:
         raise Warning("GEOMETRY MISMATCH FOUND! CHECK THE TEXT OUTPUT! This does not cause an error at this point  but you should definitely check whether your geometries are alright!")
     else:

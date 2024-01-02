@@ -83,7 +83,7 @@ if __name__ == '__main__':
         shutil.copy(join(imagests_source, i + "_DE.nii.gz"), join(imagests, i + '_0001.nii.gz'))
         shutil.copy(join(imagests_source, i + "_T2.nii.gz"), join(imagests, i + '_0002.nii.gz'))
 
-    generate_dataset_json(join(out_base, 'dataset.json'),
+    generate_dataset_json(join(out_base, 'dataset1.json'),
                           imagestr,
                           None,
                           ('C0', 'DE', 'T2'),

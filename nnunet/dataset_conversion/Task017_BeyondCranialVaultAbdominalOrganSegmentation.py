@@ -91,4 +91,4 @@ if __name__ == "__main__":
     json_dict['training'] = [{'image': "./imagesTr/%s" % train_patient_name, "label": "./labelsTr/%s" % train_patient_name} for i, train_patient_name in enumerate(train_patient_names)]
     json_dict['test'] = ["./imagesTs/%s" % test_patient_name for test_patient_name in test_patient_names]
 
-    save_json(json_dict, os.path.join(out_base, "dataset.json"))
+    save_json(json_dict, os.path.join(out_base, "dataset1.json"))

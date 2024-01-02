@@ -230,7 +230,7 @@ if __name__ == "__main__":
                               "label": "./labelsTr/%s" % i.split("/")[-1]} for i in labelsTr]
     json_dict['test'] = []
 
-    save_json(json_dict, os.path.join(out_dir, "dataset.json"))
+    save_json(json_dict, os.path.join(out_dir, "dataset1.json"))
 
     #
     # now the data is ready to be preprocessed by the nnUNet

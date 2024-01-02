@@ -77,5 +77,5 @@ if __name__ == "__main__":
                              raw_data]
     json_dict['test'] = ["./imagesTs/%s.nii.gz" % i.split("/")[-1][:-4] for i in test_data]
 
-    save_json(json_dict, os.path.join(out_folder, "dataset.json"))
+    save_json(json_dict, os.path.join(out_folder, "dataset1.json"))
 

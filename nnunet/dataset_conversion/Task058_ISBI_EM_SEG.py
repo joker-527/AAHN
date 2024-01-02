@@ -102,4 +102,4 @@ if __name__ == "__main__":
                              range(5)]
     json_dict['test'] = ["./imagesTs/testing.nii.gz"]
 
-    save_json(json_dict, os.path.join(out_base, "dataset.json"))
+    save_json(json_dict, os.path.join(out_base, "dataset1.json"))

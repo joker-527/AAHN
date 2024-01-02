@@ -480,7 +480,7 @@ if __name__ == "__main__":
 
             maybe_mkdir_p(preprocessing_output_dir_this_task)
             shutil.copy(join(cropped_out_dir, "dataset_properties.pkl"), preprocessing_output_dir_this_task)
-            shutil.copy(join(nnUNet_raw_data, t, "dataset.json"), preprocessing_output_dir_this_task)
+            shutil.copy(join(nnUNet_raw_data, t, "dataset1.json"), preprocessing_output_dir_this_task)
 
             threads = (tl, tf)
 

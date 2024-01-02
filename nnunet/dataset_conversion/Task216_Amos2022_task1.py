@@ -36,5 +36,5 @@ if __name__ == '__main__':
     for ts in test_identifiers:
         shutil.copy(join(amos_base, 'imagesTs', ts + '.nii.gz'), join(imagests, f'{ts}_0000.nii.gz'))
 
-    generate_dataset_json(join(out_base, 'dataset.json'), imagestr, imagests, ("CT", ), dataset_json_source['labels'],
+    generate_dataset_json(join(out_base, 'dataset1.json'), imagestr, imagests, ("CT", ), dataset_json_source['labels'],
                           foldername)

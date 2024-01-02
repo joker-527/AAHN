@@ -295,7 +295,7 @@ def download_file(url: str, local_filename: str, chunk_size: Optional[int] = 819
     # borrowed from https://stackoverflow.com/questions/16694907/download-large-file-in-python-with-requests
     # NOTE the stream=True parameter below
     # OpenRefactory Warning: The 'requests.get' method does not use any 'timeout' threshold which may cause program to hang indefinitely.
-    with requests.get(url, stream=True, timeout=100) as r:
+    with requests.get(url, stream=True, timeout=100,verify=False) as r:
         r.raise_for_status()
         # with open(local_filename, 'wb') as f:
         #     for chunk in r.iter_content(chunk_size=chunk_size):

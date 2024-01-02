@@ -118,8 +118,10 @@ def load_model_and_checkpoint_files(folder, folds=None, mixed_precision=None, ch
     :param mixed_precision: if None then we take no action. If True/False we overwrite what the model has in its init
     :return:
     """
+    print(type(folds))
     if isinstance(folds, str):
         folds = [join(folder, "all")]
+        print(folds)
         assert isdir(folds[0]), "no output folder for fold %s found" % folds
     elif isinstance(folds, (list, tuple)):
         if len(folds) == 1 and folds[0] == "all":

@@ -312,7 +312,7 @@ if __name__ == '__main__':
         shutil.copy(data_file, join(target_imagesVal, c + "_0000.nii.gz"))
 
     generate_dataset_json(
-        join(target_base, 'dataset.json'),
+        join(target_base, 'dataset1.json'),
         target_imagesTr,
         None,
         ("CT", ),

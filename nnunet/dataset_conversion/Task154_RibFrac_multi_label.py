@@ -169,4 +169,4 @@ if __name__ == "__main__":
     print("All tasks finished.")
 
     labels = {0: "background", 1: "displaced_rib_fracture", 2: "non_displaced_rib_fracture", 3: "buckle_rib_fracture", 4: "segmental_rib_fracture", 5: "unidentified_rib_fracture"}
-    generate_dataset_json(join(dataset_save_path, 'dataset.json'), join(dataset_save_path, "imagesTr"), None, ('CT',), labels, "Task154_RibFrac_multi_label")
+    generate_dataset_json(join(dataset_save_path, 'dataset1.json'), join(dataset_save_path, "imagesTr"), None, ('CT',), labels, "Task154_RibFrac_multi_label")

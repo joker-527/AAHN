@@ -102,7 +102,7 @@ if __name__ == "__main__":
         train_patient_names]
     json_dict['test'] = ["./imagesTs/%s.nii.gz" % i.split("/")[-1] for i in []]
 
-    save_json(json_dict, os.path.join(out_base, "dataset.json"))
+    save_json(json_dict, os.path.join(out_base, "dataset1.json"))
 
     # now we reorient all those images to ras. This saves a pkl with the original affine. We need this information to
     # bring our predictions into the same geometry for submission

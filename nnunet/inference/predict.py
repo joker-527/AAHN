@@ -131,7 +131,7 @@ def preprocess_multithreaded(trainer, list_of_lists, output_files, num_processes
 def predict_cases(model, list_of_lists, output_filenames, folds, save_npz, num_threads_preprocessing,
                   num_threads_nifti_save, segs_from_prev_stage=None, do_tta=True, mixed_precision=True,
                   overwrite_existing=False,
-                  all_in_gpu=False, step_size=0.5, checkpoint_name="model_final_checkpoint",
+                  all_in_gpu=False, step_size=0.5, checkpoint_name="model_best",
                   segmentation_export_kwargs: dict = None, disable_postprocessing: bool = False):
     """
     :param segmentation_export_kwargs:
@@ -181,7 +181,8 @@ def predict_cases(model, list_of_lists, output_filenames, folds, save_npz, num_t
     torch.cuda.empty_cache()
 
     print("loading parameters for folds,", folds)
-    trainer, params = load_model_and_checkpoint_files(model, folds, mixed_precision=mixed_precision,
+    print(model)
+    trainer, params = load_model_and_checkpoint_files(model, folds[0], mixed_precision=mixed_precision,
                                                       checkpoint_name=checkpoint_name)
 
     if segmentation_export_kwargs is None:
@@ -295,7 +296,7 @@ def predict_cases(model, list_of_lists, output_filenames, folds, save_npz, num_t
 def predict_cases_fast(model, list_of_lists, output_filenames, folds, num_threads_preprocessing,
                        num_threads_nifti_save, segs_from_prev_stage=None, do_tta=True, mixed_precision=True,
                        overwrite_existing=False,
-                       all_in_gpu=False, step_size=0.5, checkpoint_name="model_final_checkpoint",
+                       all_in_gpu=False, step_size=0.5, checkpoint_name="model_best",
                        segmentation_export_kwargs: dict = None, disable_postprocessing: bool = False):
     assert len(list_of_lists) == len(output_filenames)
     if segs_from_prev_stage is not None: assert len(segs_from_prev_stage) == len(output_filenames)
@@ -443,7 +444,7 @@ def predict_cases_fast(model, list_of_lists, output_filenames, folds, num_thread
 def predict_cases_fastest(model, list_of_lists, output_filenames, folds, num_threads_preprocessing,
                           num_threads_nifti_save, segs_from_prev_stage=None, do_tta=True, mixed_precision=True,
                           overwrite_existing=False, all_in_gpu=False, step_size=0.5,
-                          checkpoint_name="model_final_checkpoint", disable_postprocessing: bool = False):
+                          checkpoint_name="model_best", disable_postprocessing: bool = False):
     assert len(list_of_lists) == len(output_filenames)
     if segs_from_prev_stage is not None: assert len(segs_from_prev_stage) == len(output_filenames)
 
@@ -606,7 +607,7 @@ def predict_from_folder(model: str, input_folder: str, output_folder: str, folds
                         lowres_segmentations: Union[str, None],
                         part_id: int, num_parts: int, tta: bool, mixed_precision: bool = True,
                         overwrite_existing: bool = True, mode: str = 'normal', overwrite_all_in_gpu: bool = None,
-                        step_size: float = 0.5, checkpoint_name: str = "model_final_checkpoint",
+                        step_size: float = 0.5, checkpoint_name: str = "model_best",
                         segmentation_export_kwargs: dict = None, disable_postprocessing: bool = False):
     """
         here we use the standard naming scheme to generate list_of_lists and output_files needed by predict_cases

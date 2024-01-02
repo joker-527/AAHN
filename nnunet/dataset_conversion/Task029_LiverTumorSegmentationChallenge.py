@@ -119,5 +119,5 @@ if __name__ == "__main__":
     json_dict['training'] = [{'image': "./imagesTr/%s.nii.gz" % i, "label": "./labelsTr/%s.nii.gz" % i} for i in train_ids]
     json_dict['test'] = ["./imagesTs/%s.nii.gz" % i for i in test_ids]
 
-    with open(os.path.join(output_folder, "dataset.json"), 'w') as f:
+    with open(os.path.join(output_folder, "dataset1.json"), 'w') as f:
         json.dump(json_dict, f, indent=4, sort_keys=True)

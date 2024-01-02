@@ -128,7 +128,7 @@ if __name__ == "__main__":
                              patient_names]
     json_dict['test'] = []
 
-    save_json(json_dict, join(target_base, "dataset.json"))
+    save_json(json_dict, join(target_base, "dataset1.json"))
 
     del tpe, cur
     downloaded_data_dir = "/home/fabian/Downloads/BraTS2018_train_val_test_data/MICCAI_BraTS_2018_Data_Validation"
