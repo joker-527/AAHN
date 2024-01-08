@@ -4,7 +4,7 @@ This is the source code of the paper <strong>Asymmetric Adaptive Heterogeneous N
 
 The codebase is based from [nnUNet](https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1)
 
-![Network Architecture](/net.png "Network Architecture")
+![Network Architecture](/images/net.png "Network Architecture")
 
 
 ## Abstract
@@ -22,6 +22,6 @@ Existing studies of multi-modality medical image segmentation tend to aggregate 
 
 ## Result
 
-![Result of Hecktor21 Dataset](/table_hecktor.png "Result of Hecktor21 Dataset")
-![Result of Prostate158 Dataset](/table_prostate.png "Result of Prostate158 Dataset")
-![Result of BraTS2019 Dataset](/table_brats.png "Result of BraTS2019 Dataset")
+![Result of Hecktor21 Dataset](/images/table_hecktor.png "Result of Hecktor21 Dataset")
+![Result of Prostate158 Dataset](/images/table_prostate.png "Result of Prostate158 Dataset")
+![Result of BraTS2019 Dataset](/images/table_brats.png "Result of BraTS2019 Dataset")
