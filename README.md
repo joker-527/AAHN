@@ -22,3 +22,6 @@ Existing studies of multi-modality medical image segmentation tend to aggregate 
 
 ## Result
 
+![Result of Hecktor21 Dataset](/table_hecktor.png "Result of Hecktor21 Dataset")
+![Result of Prostate158 Dataset](/table_prostate.png "Result of Prostate158 Dataset")
+![Result of BraTS2019 Dataset](/table_brats.png "Result of BraTS2019 Dataset")
