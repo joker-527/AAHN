@@ -389,7 +389,7 @@ class TransUnet_dis_graph_transfuse(nn.Module):
         self.conv1x1 = nn.Conv2d(in_channels=16, out_channels=classes, kernel_size=1)
 
     def forward(self, x):
-        x_t1 = x[:, 0, :, :]
+        x_t1 = x[:, 0, :, :]#不同通道表示不同模态
         x_t2 = x[:, 1, :, :]
         x_ct = x[:, 2, :, :]  # t2
         x_pet = x[:, 3, :, :]  # flair
