@@ -55,7 +55,7 @@ def remove_all_but_the_largest_connected_component(image: np.ndarray, for_which_
     to use all foreground classes together)
     :param minimum_valid_object_size: Only objects larger than minimum_valid_object_size will be removed. Keys in
     minimum_valid_object_size must match entries in for_which_classes
-    :return:
+    :
     """
     if for_which_classes is None:
         for_which_classes = np.unique(image)
